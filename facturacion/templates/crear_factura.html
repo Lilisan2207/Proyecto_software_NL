@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Factura de Venta</title>
+    <link rel="stylesheet" href="{% static 'facturacion/css/crear_facturas.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Nueva factura  </h1>
+        <div class="acciones-header">
+            <button class="btn-tutorial">Ver tutoriales ▼</button>
+        </div>
+
+        <form class="factura-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo" name="tipo">
+                        <option value="">Selecciona</option>
+                        <option value="venta">Factura de venta</option>
+                        <option value="venta">Factura simplificada</option>
+                        <option value="venta">Factura electrónica</option>
+                        <option value="venta">Factura recapitulativa</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numero">Número</label>
+                    <input type="text" id="numero" name="numero">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cliente">Cliente</label>
+                    <input type="text" id="cliente" placeholder="Buscar">
+                </div>
+                <div class="form-group">
+                    <label for="aiu">Incluye AIU</label>
+                    <input type="checkbox" id="aiu" name="aiu">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contacto">Contacto</label>
+                    <select id="contacto" name="contacto">
+                        <option value="">Selecciona</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vendedor">Vendedor</label>
+                    <input type="text" id="vendedor" placeholder="Buscar">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fecha">Fecha de elaboración</label>
+                    <input type="date" id="fecha" name="fecha">
+                </div>
+            </div>
+        </form>
+
+        <div class="botones">
+            <button class="btn cancelar">Cancelar</button>
+            <button class="btn guardar">Guardar</button>
+            <button class="btn enviar">Guardar y enviar</button>
+        </div>
+    </div>
+</body>
+</html>

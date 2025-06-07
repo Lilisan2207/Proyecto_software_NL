@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="{% static 'facturacion/css/menu.css' %}">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="{% url 'login' %}" class="icono">🔙</a>
+            <h2>Menú principal</h2>
+            <a href="{% url 'menu' %}" class="icono">🏠</a>
+        </div>
+    </header>
+
+    <div class="menu-container">
+        <div class="menu-item">
+            <img src="{% static 'facturacion/img/check.png' %}" alt="Crear Factura">
+            <div class="menu-content">
+                <a href="{% url 'crear_factura' %}" class="btn-opcion">Crear nueva factura</a>
+                <p class="desc">Genera una nueva factura con productos y clientes registrados.</p>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="{% static 'facturacion/img/eye.png' %}" alt="Ver Facturas">
+            <div class="menu-content">
+                <a href="{% url 'ver_facturas' %}" class="btn-opcion">Ver Facturas Existentes</a>
+                <p class="desc">Consulta y edita las facturas previamente generadas.</p>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="{% static 'facturacion/img/clients.png' %}" alt="Clientes">
+            <div class="menu-content">
+                <a href="{% url 'clientes' %}" class="btn-opcion">Clientes</a>
+                <p class="desc">Gestiona tus clientes registrados en el sistema.</p>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="{% static 'facturacion/img/config.png' %}" alt="Configuración">
+            <div class="menu-content">
+                <a href="{% url 'configuracion' %}" class="btn-opcion">Configuración</a>
+                <p class="desc">Modifica opciones del sistema según tus necesidades.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Facturas</title>
+    <link rel="stylesheet" href="{% static 'facturacion/css/ver_facturas.css' %}">
+</head>
+<body>
+    <div class="contenedor">
+        <div class="encabezado">
+            <h2>Facturas registradas</h2>
+            <a href="{% url 'crear_factura' %}" class="btn-nueva">+ Nueva factura</a>
+        </div>
+
+        <table class="tabla-facturas">
+            <thead>
+                <tr>
+                    <th>No. Factura</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for factura in facturas %}
+                    <tr>
+                        <td>{{ factura.numero }}</td>
+                        <td>{{ factura.cliente }}</td>
+                        <td>{{ factura.fecha }}</td>
+                        <td>${{ factura.total }}</td>
+                        <td>{{ factura.estado }}</td>
+                        <td>
+                            <a href="{% url 'detalle_factura' factura.id %}" class="btn-ver">Ver</a>
+                            <form action="{% url 'eliminar_factura' factura.id %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-eliminar">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="6">No hay facturas registradas.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+

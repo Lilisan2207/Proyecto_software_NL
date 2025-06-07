@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración</title>
+    <link rel="stylesheet" href="{% static 'facturacion/css/configuracion.css' %}">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+        <a href="{% url 'menu' %}" class="icono">🔙</a>
+        </h2>Configuración</h2>
+        <a href="{% url 'login' %}" class="icono">🏠</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="config-block">
+            <h2>Rango de numeración</h2>
+            <input type="text" placeholder="Rango inicial">
+            <input type="text" placeholder="Rango final">
+        </section>
+
+        <section class="config-block">
+            <h2>Métodos de envío</h2>
+            <select>
+                <option>En tiempo real</option>
+                <option>Por lotes asíncronos</option>
+            </select>
+        </section>
+
+        <section class="config-block">
+            <h2>Datos de la empresa</h2>
+            <input type="text" placeholder="Nombre legal">
+            <input type="text" placeholder="Dirección">
+            <input type="email" placeholder="Correo de contacto">
+        </section>
+
+        <section class="config-block">
+            <h2>Formato de la factura</h2>
+            <select>
+                <option>PDF</option>
+                <option>XML</option>
+            </select>
+        </section>
+
+        <section class="config-block">
+            <h2>Notificaciones</h2>
+            <label><input type="checkbox"> Enviar al generar factura</label>
+            <label><input type="checkbox"> Enviar al enviar factura</label>
+            <label><input type="checkbox"> Enviar al recibir acuse</label>
+        </section>
+
+        <section class="config-block">
+            <h2>Integraciones</h2>
+            <input type="text" placeholder="ERP / Sistema Contable conectado">
+        </section>
+
+        <section class="config-block">
+            <h2>Seguridad</h2>
+            <select>
+                <option>Administrador</option>
+                <option>Facturador</option>
+                <option>Solo lectura</option>
+            </select>
+        </section>
+
+        <div class="botones">
+            <button class="guardar">Guardar</button>
+            <button class="cancelar">Cancelar</button>
+        </div>
+    </main>
+</body>
+</html>
+
